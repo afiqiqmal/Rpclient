@@ -61,6 +61,11 @@ RaudhahPay::make()
 ```
 
 
+### Check checksum from Redirect/Webhook
+```$xslt
+RaudhahPay::make()->checkIncomingRequest($list_input); //boolean
+```
+
 ## Source
 [Raudhah Pay Docs](https://documenter.getpostman.com/view/9723080/SWE57zKG?version=latest)
 
