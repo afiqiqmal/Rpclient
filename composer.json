@@ -1,0 +1,36 @@
+{
+    "name": "afiqiqmal/rpclient",
+    "description": "RaudhahPay Gateway wrapper client",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "RaudahPay",
+        "Payment Gateway",
+        "Payment",
+        "Raudhah",
+        "Online Banking",
+        "Malaysia",
+        "Banking",
+        "BMF"
+    ],
+    "authors": [
+        {
+            "name": "Hafiq",
+            "email": "hafiqiqmal93@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "guzzlehttp/guzzle": "^6.5"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^4.1"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Afiqiqmal\\Rpclient\\":"src/"
+        }
+    }
+}
