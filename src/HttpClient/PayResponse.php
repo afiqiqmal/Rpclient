@@ -7,7 +7,7 @@ namespace Afiqiqmal\Rpclient\HttpClient;
 use GuzzleHttp\Exception\BadResponseException;
 use Psr\Http\Message\ResponseInterface;
 
-class ApiResponse
+class PayResponse
 {
     /**
      * @var bool
@@ -50,11 +50,15 @@ class ApiResponse
         }
 
         if ($response instanceof BadResponseException) {
-            $this->setBody($response->getResponse()->getBody()->getContents());
-            $this->setStatusCode($response->getResponse()->getStatusCode());
-            $this->setMessage("Something went wrong");
-            $this->setReference($response->getMessage());
+            $responseBody = json_decode($response->getResponse()->getBody(), true);
+            $body = call_user_func_array('array_merge', $responseBody);
+            $body = array_values($body);
+
             $this->setError(true);
+            $this->setBody($body);
+            $this->setReference($responseBody);
+            $this->setMessage("Request Failed");
+            $this->setStatusCode($response->getResponse()->getStatusCode());
 
         } else if ($response instanceof \Exception) {
             $this->setError(true);
@@ -65,17 +69,17 @@ class ApiResponse
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getReference(): string
+    public function getReference()
     {
         return $this->reference;
     }
 
     /**
-     * @param string $reference
+     * @param $reference
      */
-    protected function setReference(string $reference): void
+    protected function setReference($reference): void
     {
         $this->reference = $reference;
     }
@@ -113,7 +117,7 @@ class ApiResponse
     }
 
     /**
-     * @return array|string
+     * @return mixed
      */
     public function getBody()
     {
@@ -121,7 +125,7 @@ class ApiResponse
     }
 
     /**
-     * @param array|string $body
+     * @param $body
      */
     protected function setBody($body): void
     {
@@ -160,39 +164,20 @@ class ApiResponse
         $this->status_code = $status_code;
     }
 
-    public function fullOutput()
-    {
-        if (!$this->isError()) {
-            return [
-                'error' => $this->isError(),
-                'status_code' => $this->getStatusCode(),
-                'body' =>  $this->getBody(),
-                'header' =>  $this->getHeader(),
-            ];
-        } else {
-            return [
-                'error' => $this->isError(),
-                'status_code' => $this->getStatusCode(),
-                'message' =>  $this->getMessage(),
-                'references' =>  $this->getReference(),
-            ];
-        }
-    }
-
     public function output()
     {
+        $data = [
+            'error' => $this->isError(),
+            'status_code' => $this->getStatusCode(),
+            'message' =>  $this->getMessage(),
+            'body' =>  $this->getBody(),
+        ];
+
         if (!$this->isError()) {
-            return [
-                'error' => $this->isError(),
-                'status_code' => $this->getStatusCode(),
-                'body' =>  $this->getBody(),
-            ];
+            return $data;
         } else {
-            return [
-                'error' => $this->isError(),
-                'status_code' => $this->getStatusCode(),
-                'message' =>  $this->getMessage(),
-            ];
+            $data['references'] = $this->getReference();
+            return $data;
         }
     }
 }

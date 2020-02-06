@@ -5,7 +5,7 @@ namespace Afiqiqmal\Rpclient\RPay;
 
 
 use Afiqiqmal\Rpclient\HttpClient\ApiRequest;
-use Afiqiqmal\Rpclient\HttpClient\ApiResponse;
+use Afiqiqmal\Rpclient\HttpClient\PayResponse;
 
 class RPCollection
 {
@@ -25,9 +25,9 @@ class RPCollection
      * Create Collection
      *
      * @param $collection_name
-     * @return ApiResponse
+     * @return PayResponse
      */
-    public function create(string $collection_name): ApiResponse
+    public function create(string $collection_name): PayResponse
     {
         return $this->client
             ->urlSegment($this->path)
@@ -43,9 +43,9 @@ class RPCollection
      *
      * @param int $page
      * @param string $include
-     * @return ApiResponse
+     * @return PayResponse
      */
-    public function fetchList(int $page = 1, string $include = 'organization'): ApiResponse
+    public function fetchList(int $page = 1, string $include = 'organization'): PayResponse
     {
         return $this->client
             ->urlSegment($this->path, [
@@ -59,9 +59,9 @@ class RPCollection
      *
      * @param string $code
      * @param string $include
-     * @return ApiResponse
+     * @return PayResponse
      */
-    public function fetchByCode(string $code, string $include = 'organization'): ApiResponse
+    public function fetchByCode(string $code, string $include = 'organization'): PayResponse
     {
         return $this->client
             ->urlSegment($this->path."/$code", [
@@ -76,9 +76,9 @@ class RPCollection
      * @param int $collection_id
      * @param string $collection_name
      * @param string $include
-     * @return ApiResponse
+     * @return PayResponse
      */
-    public function updateCollectionName(int $collection_id, string $collection_name, string $include = 'organization'): ApiResponse
+    public function updateCollectionName(int $collection_id, string $collection_name, string $include = 'organization'): PayResponse
     {
         return $this->client
             ->patchMethod()

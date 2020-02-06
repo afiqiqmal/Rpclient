@@ -4,7 +4,7 @@
 namespace Afiqiqmal\Rpclient\RPay;
 
 
-use Afiqiqmal\Rpclient\HttpClient\ApiResponse;
+use Afiqiqmal\Rpclient\HttpClient\PayResponse;
 
 class RPBillDetail
 {
@@ -85,7 +85,7 @@ class RPBillDetail
         return $this;
     }
 
-    public function create($collection_code, string $include = 'product-collections.product'): ApiResponse
+    public function create($collection_code, string $include = 'product-collections.product'): PayResponse
     {
         return $this->rpBill->getClient()
             ->urlSegment($this->path."/$collection_code/bills", [

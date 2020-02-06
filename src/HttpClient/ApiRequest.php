@@ -155,7 +155,7 @@ class ApiRequest
         return $this;
     }
 
-    public function fetch() : ApiResponse
+    public function fetch() : PayResponse
     {
         if (count($this->param) > 0 && $this->requestBody == null) {
             $this->requestBody = $this->param;
@@ -199,12 +199,12 @@ class ApiRequest
             $param = array_merge($param, $this->param);
             $response = $client->request($this->method, $url, $param);
 
-            return new ApiResponse($response);
+            return new PayResponse($response);
 
         } catch (BadResponseException $ex) {
-            return new ApiResponse($ex);
+            return new PayResponse($ex);
         } catch (\Exception $ex) {
-            return new ApiResponse($ex);
+            return new PayResponse($ex);
         }
     }
 }
