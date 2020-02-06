@@ -85,8 +85,19 @@ class RPBillDetail
         return $this;
     }
 
+    /**
+     * @throws \RuntimeException
+     * @param $collection_code
+     * @param string $include
+     * @return PayResponse
+     */
     public function create($collection_code, string $include = 'product-collections.product'): PayResponse
     {
+        $validate = $this->isPayloadValid();
+        if ($validate instanceof \Exception) {
+            return new PayResponse($validate);
+        }
+
         return $this->rpBill->getClient()
             ->urlSegment($this->path."/$collection_code/bills", [
                 'includes' => $include
@@ -96,29 +107,29 @@ class RPBillDetail
             ->fetch();
     }
 
-    private function validateInfo()
+    private function isPayloadValid()
     {
         if (count($this->products) > 0) {
             foreach ($this->products as $product) {
                 if (array_key_exists('title', $product) && array_key_exists('price', $product) && array_key_exists('quantity', $product)) {
                     continue;
                 } else {
-                    throw new \RuntimeException("Invalid Product");
+                    return new \Exception("Invalid Product");
                 }
             }
         } else {
-            throw new \RuntimeException("Product cant be empty");
+            return new \Exception("Product cant be empty");
         }
 
         if ($this->firstName == null || $this->lastName == null || $this->email == null  || $this->phoneNumber == null || $this->address == null ) {
-            throw new \RuntimeException("Customer First Name, Last Name, Email, Address and Phone Number is required");
+            return new \Exception("Customer First Name, Last Name, Email, Address and Phone Number is required");
         }
+
+        return true;
     }
 
     private function buildPaymentDetail() : array
     {
-        $this->validateInfo();
-
         return [
             'due' => $this->dueDate ?? date("Y-m-d", strtotime('tomorrow')),
             'currency' => $this->currencyCode,

@@ -53,10 +53,8 @@ class PayResponse
             $responseBody = json_decode($response->getResponse()->getBody(), true);
             $body = call_user_func_array('array_merge', $responseBody);
             $body = array_values($body);
-
             $this->setError(true);
-            $this->setBody($body);
-            $this->setReference($responseBody);
+            $this->setReference($body);
             $this->setMessage("Request Failed");
             $this->setStatusCode($response->getResponse()->getStatusCode());
 
@@ -64,7 +62,7 @@ class PayResponse
             $this->setError(true);
             $this->setStatusCode(500);
             $this->setMessage("Something went wrong");
-            $this->setReference($response->getMessage());
+            $this->setReference(is_string($response->getMessage()) ? [$response->getMessage()] : $response->getMessage());
         }
     }
 
@@ -85,9 +83,9 @@ class PayResponse
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getMessage(): string
+    public function getMessage()
     {
         return $this->message;
     }
@@ -177,6 +175,8 @@ class PayResponse
             return $data;
         } else {
             $data['references'] = $this->getReference();
+            unset($data['body']);
+
             return $data;
         }
     }
