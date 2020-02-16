@@ -1,3 +1,6 @@
+[![Packagist](https://img.shields.io/packagist/dt/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
+[![Packagist](https://img.shields.io/packagist/v/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
+
 # Raudhah Pay Client Wrapper
 
 It is simple wrapper class written in php to ease use of RaudhahPay
