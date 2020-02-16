@@ -49,7 +49,7 @@ class RPCollection
     {
         return $this->client
             ->urlSegment($this->path, [
-                'includes' => $include
+                'include' => $include
             ])
             ->fetch();
     }
@@ -65,7 +65,7 @@ class RPCollection
     {
         return $this->client
             ->urlSegment($this->path."/$code", [
-                'includes' => $include
+                'include' => $include
             ])
             ->fetch();
     }
@@ -83,7 +83,7 @@ class RPCollection
         return $this->client
             ->patchMethod()
             ->urlSegment($this->path."/$collection_id", [
-                'includes' => $include
+                'include' => $include
             ])
             ->setRequestBody([
                 'name' => $collection_name

@@ -29,7 +29,7 @@ class RPBill
     {
         return $this->client
             ->urlSegment("{$this->path}/{$collection_code}/bills/{$bill_code}/transactions/{$transaction_ref_no}", [
-                'includes' => $include
+                'include' => $include
             ])
             ->fetch();
     }
@@ -38,7 +38,7 @@ class RPBill
     {
         return $this->client
             ->urlSegment("{$this->path}/{$collection_code}/bills/{$bill_code}/transactions", [
-                'includes' => $include
+                'include' => $include
             ])
             ->fetch();
     }
@@ -47,7 +47,7 @@ class RPBill
     {
         return $this->client
             ->urlSegment("{$this->path}/{$collection_code}/bills/{$bill_code}", [
-                'includes' => $include
+                'include' => $include
             ])
             ->fetch();
     }
@@ -56,7 +56,7 @@ class RPBill
     {
         return $this->client
             ->urlSegment("{$this->path}/{$collection_code}/bills/", [
-                'includes' => $include
+                'include' => $include
             ])
             ->fetch();
     }

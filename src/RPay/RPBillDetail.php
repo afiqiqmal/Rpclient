@@ -100,7 +100,7 @@ class RPBillDetail
 
         return $this->rpBill->getClient()
             ->urlSegment($this->path."/$collection_code/bills", [
-                'includes' => $include
+                'include' => $include
             ])
             ->postMethod()
             ->setRequestBody($this->buildPaymentDetail())
