@@ -1,7 +1,7 @@
 [![Packagist](https://img.shields.io/packagist/dt/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
 [![Packagist](https://img.shields.io/packagist/v/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
 
-# Raudhah Pay Client Wrapper
+# Raudhah Pay Client Library using PHP Framework
 
 It is simple wrapper class written in php to ease use of [RaudhahPay Payment Gateway](https://www.raudhahpay.com/) 
 
@@ -9,9 +9,9 @@ It is simple wrapper class written in php to ease use of [RaudhahPay Payment Gat
 * [Installation](#installation)
 * [Usages](#usages)
 
-<br><br>
 ## Installation
 
+### Composer
 ```
 composer require afiqiqmal/rpclient
 ```
