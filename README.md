@@ -3,7 +3,8 @@
 
 # Raudhah Pay Client Wrapper
 
-It is simple wrapper class written in php to ease use of RaudhahPay
+It is simple wrapper class written in php to ease use of [RaudhahPay Payment Gateway](https://www.raudhahpay.com/) 
+
 
 #### install from composer
 
@@ -73,7 +74,7 @@ RaudhahPay::make()->checkIncomingRequest($list_input); //boolean
 [Raudhah Pay Docs](https://documenter.getpostman.com/view/9723080/SWE57zKG?version=latest)
 
 ## Todo
-- Other RP functions
+- Other Raudhah Pay features. Still under development
 
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)
