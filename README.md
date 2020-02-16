@@ -5,8 +5,12 @@
 
 It is simple wrapper class written in php to ease use of [RaudhahPay Payment Gateway](https://www.raudhahpay.com/) 
 
+## Directory
+* [Installation](#installation)
+* [Usages](#usages)
 
-#### install from composer
+<br><br>
+## Installation
 
 ```
 composer require afiqiqmal/rpclient
@@ -21,7 +25,7 @@ Alternatively, you can specify as a dependency in your project's existing compos
 ```
 
 
-## Usage
+## Usages
 After installing, you need to require Composer's autoloader and add your code.
 
 Setup config
