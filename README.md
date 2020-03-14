@@ -1,9 +1,17 @@
-# Raudhah Pay Client Wrapper
+[![Packagist](https://img.shields.io/packagist/dt/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
+[![Packagist](https://img.shields.io/packagist/v/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
 
-It is simple wrapper class written in php to ease use of RaudhahPay
+# Raudhah Pay Client Library using PHP Framework
 
-#### install from composer
+It is simple wrapper class written in php to ease use of [RaudhahPay Payment Gateway](https://www.raudhahpay.com/) 
 
+## Directory
+* [Installation](#installation)
+* [Usages](#usages)
+
+## Installation
+
+### Composer
 ```
 composer require afiqiqmal/rpclient
 ```
@@ -17,7 +25,7 @@ Alternatively, you can specify as a dependency in your project's existing compos
 ```
 
 
-## Usage
+## Usages
 After installing, you need to require Composer's autoloader and add your code.
 
 Setup config
@@ -70,7 +78,7 @@ RaudhahPay::make()->checkIncomingRequest($list_input); //boolean
 [Raudhah Pay Docs](https://documenter.getpostman.com/view/9723080/SWE57zKG?version=latest)
 
 ## Todo
-- Other RP functions
+- Other Raudhah Pay features. Still under development
 
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)
