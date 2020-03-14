@@ -51,10 +51,10 @@ class PayResponse
 
         if ($response instanceof BadResponseException) {
             $responseBody = json_decode($response->getResponse()->getBody(), true);
-            $body = call_user_func_array('array_merge', $responseBody ?? []);
-            $body = array_values($body);
+//            $body = call_user_func_array('array_merge', $responseBody ?? []);
+//            $body = array_values($body);
             $this->setError(true);
-            $this->setReference($body);
+            $this->setReference($responseBody);
             $this->setMessage("Request Failed");
             $this->setStatusCode($response->getResponse()->getStatusCode());
 
