@@ -165,7 +165,7 @@ class ApiRequest
             throw new \RuntimeException('Endpoint URL need to be set!!');
         }
 
-        $url = trim($this->endpoint, '/').DIRECTORY_SEPARATOR.trim($this->urlSegment, '/');
+        $url = trim($this->endpoint, '/').'/'.trim($this->urlSegment, '/');
 
         try {
             $client = new Client();
