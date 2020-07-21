@@ -162,6 +162,11 @@ class PayResponse
         $this->status_code = $status_code;
     }
 
+    public function __toString()
+    {
+        return json_encode($this->output());
+    }
+
     public function output()
     {
         $data = [

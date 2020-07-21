@@ -87,11 +87,10 @@ class RPBillDetail
 
     /**
      * @throws \RuntimeException
-     * @param $collection_code
      * @param string $include
      * @return PayResponse
      */
-    public function create($collection_code, string $include = 'product-collections.product'): PayResponse
+    public function create(string $include = 'product-collections.product'): PayResponse
     {
         $validate = $this->isPayloadValid();
         if ($validate instanceof \Exception) {
@@ -99,7 +98,7 @@ class RPBillDetail
         }
 
         return $this->rpBill->getClient()
-            ->urlSegment($this->path."/$collection_code/bills", [
+            ->urlSegment($this->path."/{$this->rpBill->getCollectionId()}/bills", [
                 'include' => $include
             ])
             ->postMethod()
@@ -107,6 +106,9 @@ class RPBillDetail
             ->fetch();
     }
 
+    /**
+     * @return bool|\Exception
+     */
     private function isPayloadValid()
     {
         if (count($this->products) > 0) {
@@ -128,6 +130,9 @@ class RPBillDetail
         return true;
     }
 
+    /**
+     * @return array
+     */
     private function buildPaymentDetail() : array
     {
         return [

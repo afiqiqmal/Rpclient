@@ -51,8 +51,7 @@ return [
 ```$xslt
 RaudhahPay::make()
     ->collection()
-    ->create("Collection Name")
-    ->output();
+    ->create("Collection Name");
 ```
 
 
@@ -64,14 +63,26 @@ RaudhahPay::make()
     ->setCustomer("Amirul", "Amirul", "seed.email93@gmail.com", "60123456789", "Melaka")
     ->setReference("Testing")
     ->setProduct("Product 1", 10.30, 1)
-    ->create("GU0O6HT7")
-    ->fullOutput();
+    ->create("GU0O6HT7");
 ```
 
+### Create product
+```$xslt
+RaudhahPay::make()
+    ->product()
+    ->create(string|array $title/$arrays, string $code, string $description, $price);
+```
+
+### Create customer
+```$xslt
+RaudhahPay::make()
+    ->customer()
+    ->create(string|array $firstName/$arrays, string $lastName = null, string $phoneNumber = null, string $email = null);
+```
 
 ### Check checksum from Redirect/Webhook
 ```$xslt
-RaudhahPay::make()->checkIncomingRequest($list_input); //boolean
+RaudhahPay::make()->isCheckSumValid($payload); //boolean
 ```
 
 ## Source

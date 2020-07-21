@@ -6,6 +6,7 @@ namespace Afiqiqmal\Rpclient\RPay;
 
 use Afiqiqmal\Rpclient\HttpClient\ApiRequest;
 use Afiqiqmal\Rpclient\HttpClient\PayResponse;
+use Afiqiqmal\Rpclient\Utils\RPUtils;
 
 class RPCollection
 {
@@ -41,16 +42,16 @@ class RPCollection
     /**
      * Fetch all Collections
      *
-     * @param int $page
+     * @param array $extras
      * @param string $include
      * @return PayResponse
      */
-    public function fetchList(int $page = 1, string $include = 'organization'): PayResponse
+    public function fetchList(array $extras = [], string $include = 'organization'): PayResponse
     {
         return $this->client
-            ->urlSegment($this->path, [
-                'include' => $include
-            ])
+            ->urlSegment($this->path, array_merge([
+                'include' => $include,
+            ], RPUtils::buildBodyRequest($extras)))
             ->fetch();
     }
 

@@ -15,47 +15,96 @@ class RPBill
 
     protected $path = "collections";
 
+    protected $collectionId = null;
+
     public function __construct(RaudhahClient $request)
     {
         $this->client = $request->getClient();
     }
 
-    public function makeBill() : RPBillDetail
+    /**
+     * @return null
+     */
+    public function getCollectionId()
     {
+        if (!$this->collectionId) {
+            throw new \RuntimeException("Collection Code cant be empty");
+        }
+
+        return $this->collectionId;
+    }
+
+    /**
+     * @param string $collectionId
+     * @return RPBill
+     */
+    public function setCollectionId(string $collectionId)
+    {
+        $this->collectionId = $collectionId;
+        return $this;
+    }
+
+    /**
+     * @param string|null $collection_code
+     * @return RPBillDetail
+     */
+    public function makeBill(string $collection_code = null) : RPBillDetail
+    {
+        $this->collectionId = $collection_code ?? $this->collectionId;
         return new RPBillDetail($this);
     }
 
-    public function getTransactions($collection_code, $bill_code, $transaction_ref_no, string $include = 'bill.collection')
+    /**
+     * @param string $bill_code
+     * @param string $transaction_ref_no
+     * @param string $include
+     * @return \Afiqiqmal\Rpclient\HttpClient\PayResponse
+     */
+    public function getTransactions(string $bill_code, string $transaction_ref_no, string $include = 'bill.collection')
     {
         return $this->client
-            ->urlSegment("{$this->path}/{$collection_code}/bills/{$bill_code}/transactions/{$transaction_ref_no}", [
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/{$bill_code}/transactions/{$transaction_ref_no}", [
                 'include' => $include
             ])
             ->fetch();
     }
 
-    public function getAllBillTransactions($collection_code, $bill_code, string $include = 'bill.collection')
+    /**
+     * @param string $bill_code
+     * @param string $include
+     * @return \Afiqiqmal\Rpclient\HttpClient\PayResponse
+     */
+    public function getAllBillTransactions(string $bill_code, string $include = 'bill.collection')
     {
         return $this->client
-            ->urlSegment("{$this->path}/{$collection_code}/bills/{$bill_code}/transactions", [
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/{$bill_code}/transactions", [
                 'include' => $include
             ])
             ->fetch();
     }
 
-    public function getBill($collection_code, $bill_code, string $include = 'payments.transaction,collection.organization')
+    /**
+     * @param string|null $bill_code
+     * @param string $include
+     * @return \Afiqiqmal\Rpclient\HttpClient\PayResponse
+     */
+    public function getBill($bill_code, string $include = 'payments.transaction,collection.organization')
     {
         return $this->client
-            ->urlSegment("{$this->path}/{$collection_code}/bills/{$bill_code}", [
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/{$bill_code}", [
                 'include' => $include
             ])
             ->fetch();
     }
 
-    public function getAllCollectionBills($collection_code, string $include = 'payments,collection.organization')
+    /**
+     * @param string $include
+     * @return \Afiqiqmal\Rpclient\HttpClient\PayResponse
+     */
+    public function getAllCollectionBills(string $include = 'payments,collection.organization')
     {
         return $this->client
-            ->urlSegment("{$this->path}/{$collection_code}/bills/", [
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/", [
                 'include' => $include
             ])
             ->fetch();

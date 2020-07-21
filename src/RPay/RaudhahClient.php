@@ -133,7 +133,22 @@ class RaudhahClient
         return new RPBill($this);
     }
 
-    public function checkIncomingRequest(array $request)
+    public function customer() : RPCustomer
+    {
+        return new RPCustomer($this);
+    }
+
+    public function product() : RPProduct
+    {
+        return new RPProduct($this);
+    }
+
+    public function directPay() : RPDirectPay
+    {
+        return new RPDirectPay($this);
+    }
+
+    public function isCheckSumValid(array $request)
     {
         $checksum = $request['signature'];
         ksort($request);

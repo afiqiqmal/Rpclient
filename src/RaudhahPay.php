@@ -17,6 +17,10 @@ class RaudhahPay
         $this->pay = new RaudhahClient();
     }
 
+    /**
+     * @param array $config
+     * @return RaudhahClient
+     */
     public static function make(array $config = []) : RaudhahClient
     {
         $client = (new self())->pay;
