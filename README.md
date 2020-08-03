@@ -59,7 +59,7 @@ RaudhahPay::make()
 ```$xslt
 RaudhahPay::make()
     ->bill()
-    ->makeBill()
+    ->makeBill("COLLECTION CODE")
     ->setCustomer("Amirul", "Amirul", "seed.email93@gmail.com", "60123456789", "Melaka")
     ->setReference("Testing")
     ->setProduct("Product 1", 10.30, 1)
@@ -78,6 +78,24 @@ RaudhahPay::make()
 RaudhahPay::make()
     ->customer()
     ->create(string|array $firstName/$arrays, string $lastName = null, string $phoneNumber = null, string $email = null);
+```
+
+## DirectPay Payee
+```
+$response = RaudhahPay::make()
+    ->directPay()
+    ->payee("COLLECTION CODE")
+    ->getDirectPays();
+
+```
+
+## DirectPay Payeer
+```
+$response = RaudhahPay::make()
+    ->directPay()
+    ->payee("COLLECTION CODE")
+    ->getTransactions($direct_pay_payer_code);
+
 ```
 
 ### Check checksum from Redirect/Webhook
