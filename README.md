@@ -80,7 +80,7 @@ RaudhahPay::make()
     ->create(string|array $firstName/$arrays, string $lastName = null, string $phoneNumber = null, string $email = null);
 ```
 
-## DirectPay Payee
+### DirectPay Payee
 ```
 $response = RaudhahPay::make()
     ->directPay()
@@ -89,7 +89,7 @@ $response = RaudhahPay::make()
 
 ```
 
-## DirectPay Payeer
+### DirectPay Payeer
 ```
 $response = RaudhahPay::make()
     ->directPay()
