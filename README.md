@@ -109,6 +109,7 @@ RaudhahPay::make()->isCheckSumValid($payload); //boolean
 ## Todo
 - Other Raudhah Pay features. Still under development
 - Unit Test 
+- Alter Readme
 
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)
