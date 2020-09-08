@@ -1,5 +1,6 @@
 [![Packagist](https://img.shields.io/packagist/dt/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
 [![Packagist](https://img.shields.io/packagist/v/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/mhi9388?locale.x=en_US)
 
 # Raudhah Pay Client Library using PHP Framework
 
@@ -113,3 +114,6 @@ RaudhahPay::make()->isCheckSumValid($payload); //boolean
 
 ## License
 Licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+<a href="https://www.paypal.com/paypalme/mhi9388?locale.x=en_US"><img src="https://i.imgur.com/Y2gqr2j.png" height="40"></a>  
