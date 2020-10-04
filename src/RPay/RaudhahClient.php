@@ -4,7 +4,7 @@
 namespace Afiqiqmal\Rpclient\RPay;
 
 
-use Afiqiqmal\Rpclient\HttpClient\ApiRequest;
+use Afiqiqmal\Rpclient\HttpClient\APIClient;
 
 class RaudhahClient
 {
@@ -49,15 +49,14 @@ class RaudhahClient
     /**
      * API Request
      *
-     * @var ApiRequest
+     * @var APIClient
      */
     protected $client;
 
     public function __construct()
     {
-        $this->client = new ApiRequest();
+        $this->client = new APIClient();
         $this->client->setEndpoint($this->endpoint);
-        $this->client->jsonRequest();
     }
 
     public function useSandBox()
@@ -116,9 +115,9 @@ class RaudhahClient
 
 
     /**
-     * @return ApiRequest
+     * @return APIClient
      */
-    public function getClient(): ApiRequest
+    public function getClient(): APIClient
     {
         return $this->client;
     }

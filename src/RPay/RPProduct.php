@@ -5,14 +5,14 @@ namespace Afiqiqmal\Rpclient\RPay;
 
 
 use Afiqiqmal\Rpclient\Contracts\RPContracts;
-use Afiqiqmal\Rpclient\HttpClient\ApiRequest;
+use Afiqiqmal\Rpclient\HttpClient\APIClient;
 use Afiqiqmal\Rpclient\HttpClient\PayResponse;
 use Afiqiqmal\Rpclient\Utils\RPUtils;
 
 class RPProduct implements RPContracts
 {
     /**
-     * @var ApiRequest
+     * @var APIClient
      */
     protected $client;
 
@@ -134,9 +134,9 @@ class RPProduct implements RPContracts
     }
 
     /**
-     * @return ApiRequest
+     * @return APIClient
      */
-    public function getClient(): ApiRequest
+    public function getClient(): APIClient
     {
         return $this->client;
     }

@@ -4,12 +4,12 @@
 namespace Afiqiqmal\Rpclient\RPay;
 
 
-use Afiqiqmal\Rpclient\HttpClient\ApiRequest;
+use Afiqiqmal\Rpclient\HttpClient\APIClient;
 
 class RPBill
 {
     /**
-     * @var ApiRequest
+     * @var APIClient
      */
     protected $client;
 
@@ -111,9 +111,9 @@ class RPBill
     }
 
     /**
-     * @return ApiRequest
+     * @return APIClient
      */
-    public function getClient(): ApiRequest
+    public function getClient(): APIClient
     {
         return $this->client;
     }
