@@ -20,7 +20,7 @@ Alternatively, you can specify as a dependency in your project's existing compos
 ```
 {
    "require": {
-      "afiqiqmal/rpclient": "^1.0"
+      "afiqiqmal/rpclient": "^1.2.0"
    }
 }
 ```
@@ -47,6 +47,7 @@ return [
 
 ```
 
+## Collection
 
 ### Create collection
 ```$xslt
@@ -55,6 +56,29 @@ RaudhahPay::make()
     ->create("Collection Name");
 ```
 
+### Get collections
+```$xslt
+RaudhahPay::make()
+    ->collection()
+    ->fetchList(); 
+```
+
+### Update collection name
+```$xslt
+RaudhahPay::make()
+    ->collection()
+    ->updateCollectionName("CollectionID", "New Name"); 
+```
+
+### Get collections by code
+```$xslt
+RaudhahPay::make()
+    ->collection()
+    ->fetchByCode("CollectionCode"); 
+```
+
+
+## Bills
 
 ### Create Bill
 ```$xslt
@@ -66,6 +90,8 @@ RaudhahPay::make()
     ->setProduct("Product 1", 10.30, 1)
     ->create();
 ```
+
+## Products
 
 ### Create product
 ```$xslt
@@ -81,6 +107,8 @@ RaudhahPay::make()
     ->getList();
 ```
 
+## Customer
+
 ### Create customer
 ```$xslt
 RaudhahPay::make()
@@ -94,6 +122,8 @@ RaudhahPay::make()
     ->customer()
     ->getList();
 ```
+
+## DirectPay
 
 ### DirectPay Payee
 ```
