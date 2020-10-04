@@ -4,14 +4,14 @@
 namespace Afiqiqmal\Rpclient\RPay;
 
 
-use Afiqiqmal\Rpclient\HttpClient\ApiRequest;
+use Afiqiqmal\Rpclient\HttpClient\APIClient;
 use Afiqiqmal\Rpclient\HttpClient\PayResponse;
 use Afiqiqmal\Rpclient\Utils\RPUtils;
 
 class RPCollection
 {
     /**
-     * @var ApiRequest
+     * @var APIClient
      */
     protected $client;
 
