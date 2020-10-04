@@ -63,7 +63,7 @@ RaudhahPay::make()
     ->setCustomer("Amirul", "Amirul", "seed.email93@gmail.com", "60123456789", "Melaka")
     ->setReference("Testing")
     ->setProduct("Product 1", 10.30, 1)
-    ->create("GU0O6HT7");
+    ->create();
 ```
 
 ### Create product
@@ -73,11 +73,25 @@ RaudhahPay::make()
     ->create(string|array $title/$arrays, string $code, string $description, $price);
 ```
 
+### Get products
+```$xslt
+RaudhahPay::make()
+    ->product()
+    ->getList();
+```
+
 ### Create customer
 ```$xslt
 RaudhahPay::make()
     ->customer()
     ->create(string|array $firstName/$arrays, string $lastName = null, string $phoneNumber = null, string $email = null);
+```
+
+### Get customers
+```$xslt
+RaudhahPay::make()
+    ->customer()
+    ->getList();
 ```
 
 ### DirectPay Payee
