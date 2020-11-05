@@ -3,7 +3,7 @@
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/mhi9388?locale.x=en_US)
 
 
-![alt text](https://banners.beyondco.de/RPClient.png?theme=dark&packageName=afiqiqmal%2Frpclient&pattern=cage&style=style_1&description=It+is+simple+wrapper+class+written+in+php+to+ease+use+of+RaudhahPay+Payment+Gateway&md=1&fontSize=100px&images=globe)
+![alt text](https://banners.beyondco.de/RPClient.png?theme=dark&packageName=afiqiqmal%2Frpclient&pattern=cage&style=style_1&description=It+is+simple+wrapper+class+written+in+php+to+ease+use+of+RaudhahPay+Payment+Gateway&md=1&fontSize=100px&images=cash)
 
 
 # Raudhah Pay Client Library using PHP Framework
