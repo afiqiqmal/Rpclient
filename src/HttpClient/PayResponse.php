@@ -31,16 +31,17 @@ class PayResponse
             $this->error = true;
             $this->status_code = $response->getCode();
             $this->body = $response->getMessage();
-        }
+        } else {
 
-        try {
-            $this->error = !$response->isOk();
-            $this->status_code = $response->status();
-            $this->body = $response->json();
-        } catch (\Exception $exception) {
-            $this->error = true;
-            $this->status_code = $response->status();
-            $this->body = $response->json();
+            try {
+                $this->error = !$response->isOk();
+                $this->status_code = $response->status();
+                $this->body = $response->json();
+            } catch (\Exception $exception) {
+                $this->error = true;
+                $this->status_code = $response->status();
+                $this->body = $response->json();
+            }
         }
     }
 
