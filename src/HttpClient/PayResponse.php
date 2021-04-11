@@ -50,6 +50,16 @@ class PayResponse
         return json_encode($this->output());
     }
 
+    public function isError(): bool
+    {
+        return $this->error;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
+    }
+
     public function output()
     {
         return [
