@@ -2,6 +2,10 @@
 [![Packagist](https://img.shields.io/packagist/v/afiqiqmal/Rpclient.svg)](https://packagist.org/packages/afiqiqmal/Rpclient)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/paypalme/mhi9388?locale.x=en_US)
 
+
+![alt text](https://banners.beyondco.de/RPClient.png?theme=dark&packageName=afiqiqmal%2Frpclient&pattern=cage&style=style_1&description=It+is+simple+wrapper+class+written+in+php+to+ease+use+of+RaudhahPay+Payment+Gateway&md=1&fontSize=100px&images=cash)
+
+
 # Raudhah Pay Client Library using PHP Framework
 
 It is simple wrapper class written in php to ease use of [RaudhahPay Payment Gateway](https://www.raudhahpay.com/) 
@@ -20,7 +24,7 @@ Alternatively, you can specify as a dependency in your project's existing compos
 ```
 {
    "require": {
-      "afiqiqmal/rpclient": "^1.0"
+      "afiqiqmal/rpclient": "^1.2.0"
    }
 }
 ```
@@ -47,6 +51,7 @@ return [
 
 ```
 
+## Collection
 
 ### Create collection
 ```$xslt
@@ -55,6 +60,29 @@ RaudhahPay::make()
     ->create("Collection Name");
 ```
 
+### Get collections
+```$xslt
+RaudhahPay::make()
+    ->collection()
+    ->fetchList(); 
+```
+
+### Update collection name
+```$xslt
+RaudhahPay::make()
+    ->collection()
+    ->updateCollectionName("CollectionID", "New Name"); 
+```
+
+### Get collections by code
+```$xslt
+RaudhahPay::make()
+    ->collection()
+    ->fetchByCode("CollectionCode"); 
+```
+
+
+## Bills
 
 ### Create Bill
 ```$xslt
@@ -66,6 +94,8 @@ RaudhahPay::make()
     ->setProduct("Product 1", 10.30, 1)
     ->create();
 ```
+
+## Products
 
 ### Create product
 ```$xslt
@@ -81,6 +111,8 @@ RaudhahPay::make()
     ->getList();
 ```
 
+## Customer
+
 ### Create customer
 ```$xslt
 RaudhahPay::make()
@@ -94,6 +126,8 @@ RaudhahPay::make()
     ->customer()
     ->getList();
 ```
+
+## DirectPay
 
 ### DirectPay Payee
 ```
