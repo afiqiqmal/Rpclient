@@ -27,6 +27,12 @@ class PayResponse
 
     public function __construct($response)
     {
+        if ($response instanceof \Exception) {
+            $this->error = true;
+            $this->status_code = $response->getCode();
+            $this->body = $response->getMessage();
+        }
+
         try {
             $this->error = !$response->isOk();
             $this->status_code = $response->status();
