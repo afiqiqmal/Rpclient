@@ -27,9 +27,15 @@ class PayResponse
 
     public function __construct($response)
     {
-        $this->error = !$response->isOk();
-        $this->status_code = $response->status();
-        $this->body = $response->json();
+        try {
+            $this->error = !$response->isOk();
+            $this->status_code = $response->status();
+            $this->body = $response->json();
+        } catch (\Exception $exception) {
+            $this->error = true;
+            $this->status_code = $response->status();
+            $this->body = $response->json();
+        }
     }
 
     public function __toString()
