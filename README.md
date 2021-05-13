@@ -89,7 +89,7 @@ RaudhahPay::make()
 RaudhahPay::make()
     ->bill()
     ->makeBill("COLLECTION CODE")
-    ->setCustomer("Amirul", "Amirul", "seed.email93@gmail.com", "60123456789", "Melaka")
+    ->setCustomer("Amirul", "Amirul", "hello@gmail.com", "60123456789", "Melaka")
     ->setReference("Testing")
     ->setProduct("Product 1", 10.30, 1)
     ->create();
