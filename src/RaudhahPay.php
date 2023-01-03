@@ -40,6 +40,10 @@ class RaudhahPay
         $client->setApiKey($config['api_key']);
         $client->setSignatureKey($config['signature_key']);
 
+        if (isset($config['endpoint'])) {
+            $client->setEndpoint($config['endpoint']);
+        }
+
         if ($config['is_sandbox'] ?? true) {
             $client->useSandBox();
         }
