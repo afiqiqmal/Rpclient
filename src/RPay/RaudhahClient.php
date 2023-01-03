@@ -110,7 +110,7 @@ class RaudhahClient
      */
     public function setEndpoint(string $endpoint): void
     {
-        $this->endpoint = $endpoint;
+        $this->client->setEndpoint($endpoint);
     }
 
 
